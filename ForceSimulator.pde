@@ -25,8 +25,6 @@ void draw() {
     float windStrength = random(0.05, 0.15);
     wind = PVector.fromAngle(windAngle).mult(windStrength);
   }
-}
-
   for (Ball b : ballList) {
     b.applyForce(gravity);
     if (wind != null) {

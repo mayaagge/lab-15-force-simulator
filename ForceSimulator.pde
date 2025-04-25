@@ -18,12 +18,18 @@ void mouseClicked() {
 void draw() {
   background(173, 216, 230);
   PVector gravity = new PVector(0, 0.1);
-  PVector wind = new PVector(0.1, 0);
   boolean applyWind = mousePressed && mouseButton == RIGHT;
+  PVector wind = null;
+  if (applyWind) {
+    float windAngle = random(TWO_PI);
+    float windStrength = random(0.05, 0.15);
+    wind = PVector.fromAngle(windAngle).mult(windStrength);
+  }
+}
 
   for (Ball b : ballList) {
     b.applyForce(gravity);
-    if (applyWind) {
+    if (wind != null) {
       b.applyForce(wind);
     }
     b.move();

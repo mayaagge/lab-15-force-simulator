@@ -22,7 +22,7 @@ void draw() {
   PVector wind = null;
   if (applyWind) {
     float windAngle = random(TWO_PI);
-    float windStrength = random(0.05, 0.15);
+    float windStrength = random(0.5, 0.15);
     wind = PVector.fromAngle(windAngle).mult(windStrength);
   }
   for (Ball b : ballList) {
